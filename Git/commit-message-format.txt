@@ -1,0 +1,17 @@
+✨ feat: add dark mode toggle
+🐛 fix: resolve crash on login
+📝 docs: update README with setup guide
+📂 chore: add source folders  
+🙈 chore: update .gitignore  
+📂🙈 update: added source folders and .gitignore
+
+
+Common types:
+feat → new feature
+fix → bug fix
+docs → documentation only
+style → formatting, no code changes
+refactor → code change without changing functionality
+perf → performance improvement
+test → add or fix tests
+chore → maintenance tasks

@@ -1,0 +1,14 @@
+
+
+git clone <repository_url>
+
+git status 
+
+git log
+
+git add .
+
+git commit -m " "
+
+git push origin main
+
