@@ -1,0 +1,60 @@
+
+### 🎉 Initials
+
+* 🎉 `:tada:` — Initial commit
+* 🔖 `:bookmark:` — Release / version tags
+
+### ✨ Features & Updates
+
+* ✨ `:sparkles:` — Introduce new features
+* ♻️ `:recycle:` — Refactor code
+* 🆕 `:new:` — Add something new
+* 💄 `:lipstick:` — UI / style updates
+* 🎨 `:art:` — Improve code structure / formatting
+* 🚸 `:children_crossing:` — Improve user experience
+
+### 🐛 Fixes & Issues
+
+* 🐛 `:bug:` — Fix a bug
+* 🚑️ `:ambulance:` — Critical hotfix
+* 🚨 `:rotating_light:` — Fix compiler / linter warnings
+* 🔒 `:lock:` — Fix security issues
+
+### 📖 Docs
+
+* 📝 `:memo:` — Write / update docs
+* 📚 `:books:` — Documentation improvements
+
+### ⚙️ Tests & Maintenance
+
+* ✅ `:white_check_mark:` — Add tests
+* 🧪 `:test_tube:` — Experimenting with tests
+* 🔧 `:wrench:` — Add or update configs
+* 🔨 `:hammer:` — Add or update scripts / build process
+* 👷 `:construction_worker:` — CI/CD work
+
+### 📂 File Management
+
+* 📦 `:package:` — Add or update compiled files / packages
+* ➕ `:heavy_plus_sign:` — Add dependencies
+* ➖ `:heavy_minus_sign:` — Remove dependencies
+* 🔥 `:fire:` — Remove code / files
+* 🚚 `:truck:` — Move or rename files
+
+### 📊 Data & Logs
+
+* 📈 `:chart_with_upwards_trend:` — Add / update analytics, data
+* 🗑️ `:wastebasket:` — Deprecate code / API
+* 🔊 `:loud_sound:` — Add logs
+* 🔇 `:mute:` — Remove logs
+
+### 🌍 Misc
+
+* 🌐 `:globe_with_meridians:` — Internationalization / translation
+* 💡 `:bulb:` — Add or update comments
+* 🐳 `:whale:` — Docker stuff
+* 🚀 `:rocket:` — Deploy stuff
+* 🛠️ `:hammer_and_wrench:` — General maintenance
+* 🔍 `:mag:` — Improve search / SEO
+* ⚡ `:zap:` — Improve performance
+
