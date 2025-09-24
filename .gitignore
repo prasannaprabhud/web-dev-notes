@@ -32,3 +32,5 @@ __pycache__/
 # Build / Dist files
 dist/
 build/
+
+gitcommit.txt
