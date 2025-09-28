@@ -49,3 +49,145 @@ SELECT * FROM EMPLOYEE WHERE NOT EXISTS (SELECT 1 FROM DEPARTMENT WHERE EMPLOYEE
 -- 10. **Find the employees who work in a department located in Bangalore.**
 SELECT * FROM EMPLOYEE WHERE DEPT_ID IN ( SELECT DEPT_ID FROM DEPARTMENT WHERE LOCATION IN 'Bangalore');
 -- ---
+
+-- answers
+
+/*
+
+---
+
+### 1. Employees who earn more than the average salary of all employees
+
+```sql
+SELECT EMP_NAME, SALARY
+FROM EMPLOYEE
+WHERE SALARY > (SELECT AVG(SALARY) FROM EMPLOYEE);
+```
+
+---
+
+### 2. Employee(s) who have the highest salary in each department
+
+```sql
+SELECT EMP_NAME, DEPT_ID, SALARY
+FROM EMPLOYEE E
+WHERE SALARY = (
+    SELECT MAX(SALARY)
+    FROM EMPLOYEE
+    WHERE DEPT_ID = E.DEPT_ID
+);
+```
+
+---
+
+### 3. Employees who work in the same department as ‘Ram’
+
+```sql
+SELECT EMP_NAME
+FROM EMPLOYEE
+WHERE DEPT_ID = (
+    SELECT DEPT_ID
+    FROM EMPLOYEE
+    WHERE EMP_NAME = 'Ram'
+)
+AND EMP_NAME <> 'Ram';
+```
+
+---
+
+### 4. Department name where the minimum salary is greater than 45000
+
+```sql
+SELECT DEPT_NAME
+FROM DEPARTMENT
+WHERE DEPT_ID IN (
+    SELECT DEPT_ID
+    FROM EMPLOYEE
+    GROUP BY DEPT_ID
+    HAVING MIN(SALARY) > 45000
+);
+```
+
+---
+
+### 5. Employees who report to the same manager as ‘Priya’
+
+```sql
+SELECT EMP_NAME
+FROM EMPLOYEE
+WHERE MANAGER_ID = (
+    SELECT MANAGER_ID
+    FROM EMPLOYEE
+    WHERE EMP_NAME = 'Priya'
+)
+AND EMP_NAME <> 'Priya';
+```
+
+---
+
+### 6. Employee(s) whose salary is the second highest
+
+```sql
+SELECT EMP_NAME, SALARY
+FROM EMPLOYEE
+WHERE SALARY = (
+    SELECT MAX(SALARY)
+    FROM EMPLOYEE
+    WHERE SALARY < (SELECT MAX(SALARY) FROM EMPLOYEE)
+);
+```
+
+---
+
+### 7. Departments that have more than 2 employees
+
+```sql
+SELECT DEPT_NAME
+FROM DEPARTMENT
+WHERE DEPT_ID IN (
+    SELECT DEPT_ID
+    FROM EMPLOYEE
+    GROUP BY DEPT_ID
+    HAVING COUNT(*) > 2
+);
+```
+
+---
+
+### 8. Employees who earn less than the average salary of their own department
+
+```sql
+SELECT EMP_NAME, DEPT_ID, SALARY
+FROM EMPLOYEE E
+WHERE SALARY < (
+    SELECT AVG(SALARY)
+    FROM EMPLOYEE
+    WHERE DEPT_ID = E.DEPT_ID
+);
+```
+
+---
+
+### 9. Employees who do not belong to any department listed in the DEPARTMENT table
+
+```sql
+SELECT EMP_NAME
+FROM EMPLOYEE
+WHERE DEPT_ID NOT IN (SELECT DEPT_ID FROM DEPARTMENT);
+```
+
+---
+
+### 10. Employees who work in a department located in Bangalore
+
+```sql
+SELECT EMP_NAME
+FROM EMPLOYEE
+WHERE DEPT_ID = (
+    SELECT DEPT_ID
+    FROM DEPARTMENT
+    WHERE LOCATION = 'Bangalore'
+);
+```
+
+*/
