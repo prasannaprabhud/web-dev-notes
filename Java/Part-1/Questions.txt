@@ -1,0 +1,210 @@
+
+
+COMMAND PROMPT
+==========================================
+1.What is Command Prompt ?
+2.What is Directory ?
+3.What is Working Directory ?
+4.What is Root Directory ?
+5.What is Absolute Path ?
+6.What is Relative Path ?
+7.By using which command we can clear the screen?
+8.By using which command we can change the drive ?
+9.By using which command we can create a folder ?
+10.By using which command we can rename the folder?
+11.By using which command we can remove the folder?
+12.By using which command we can list the folders ?
+13.By using which command we can navigate the next single folder ?
+14.By using which command we can navigate the more than one next folder ?
+15.By using which command we can navigate the previous folder ?
+16.By using which command we can navigate the more than one previous folder ?
+17.By using which command we can exit the command Prompt ?
+
+
+PROGRAMMING LANGUAGE
+==========================
+1.What is programming Lang and list the types
+2.What is Machine Level lang?
+3.What is Assembly Level lang?
+4.What is High Level lang? and list the types
+5.What is platform dependent lang?
+6.What is platform independent lang?
+
+
+
+STRUCTURE OF JDK
+==================
+1.Explain about jdk?
+2.Explain about jre?
+3.Explain about jvm?
+4.Explain about JIT?
+5.What is source file?
+6.What is executable file?
+7.What is compile time?
+8.What is run time?
+9.What is byte code?
+10.What is the command for java program compilation?
+11.What is the command for java program execution?
+12.Explain about java compiler?
+
+
+
+BASIC STRUCTURE OF JAVA PROGRAM
+================================
+1.Can we create a class without a main method?
+2.Explain about Class Members?
+3.What is Class block?
+4.What is the syntax to create a Class Block?
+5.What is Method Block ?
+6.Why do we need Main Method?
+7.List the statements which is used to print the data in java ?
+8.List the differences between System.out.println() and System.out.print() statement in
+java ?
+9.Can we able to write more than one semicolon(;) at the end of the printing
+statements ?
+10.By using which command we can compile the java source file ?
+11.By using which command we can execute the java .class file ?
+12.Explain about comments and their types ?
+
+
+
+TOKENS
+===========================================
+1.What is Tokens and How many types are there?
+2.Explain about Keywords?
+3.Can we able to pass keywords for the printing statements?
+4.What is an Identifier?
+5.Explain about rules of an Identifier?
+6.Explain about conventions of an identifiers?
+7.What is the difference between rules and conventions of an Identifier?
+8.What is Literal ? And How many types are there?
+9.What is Primitive Literal ? And How many types are there?
+10.What is Non Primitive Literal ? Explain in detail.
+11.What is Character Literal?
+12.Explain about boolean literals?
+13.What is String literal?
+14.Can we use '$' alone for the class name ?
+15.Can we use '_' alone for the class name ?
+
+
+
+VARIABLES AND DATATYPES
+=========================================
+1.What is Variable?
+2.Based on the type how many types of Variables are there? And list the types
+3.What is Primitive Variable ? And What is the syntax to create Primitive Variable ?
+4.What is Non Primitive Variable (Reference variable ) ? And What is the syntax to create
+Non Primitive Variable ?
+5.What is Datatype ? How many types are there?
+6.What is Primitive Datatype? How many types are there? And list all the Primitive
+Datatypes
+7.What is Non-Primitive Datatype? How many types are there? And list some non
+Primitive data types
+8.In java, Whether the class name is a Non-Primitive Datatype?
+9.What is Local Area? In local area which variables can we able to create ?
+10.What is Global Area? In Global area which variables can we able to create ?
+11.Based on the scope how many types of variables are there? And list the types
+12.What is Local Variable? And explain about characteristics of Local Variable.
+13.Can we able to print local variables without initialization ?
+
+
+
+OPERATORS
+===========================================
+1.What is Typecasting and how many types of typecasting are there?
+2.What is Primitive Typecasting and which are the types of Primitive Typecasting?
+3.Expalin about Widening ? Write one example for widening.
+4.Explain about Narrowing ? Write one example for narrowing.
+5.Explain about Typecast Operator.
+6.What is the difference between Typecasting and Type conversion
+7.Explain about Operators?
+8.Based on the operands how many types of operators are there?
+9.Based on the task how many types of operators are there?
+10.What is Operand and what is Expression?
+11.Explain about Arithmetic Operators.
+12.Explain about Assignment Operators.
+13.Explain about Relational Operators
+14.Explain about conditional Operator
+15.Explain about logical Operators.
+16.Explain about Increment and Decrement Operator
+
+
+
+CONTROL FLOW STATEMENTS
+===========================================
+1.What is Control Flow Statements? And how many types are there?
+2.What is Decision Making Statements ? And how many types are there?
+3.Explain about if statement and give any one example
+4.Explain about if else statement and give any one example
+5.Explain about if else if statement and give any one example
+6.In if else if statement, else block is optional or mandatory ?
+7.Explain about switch statement and give any one example
+8.What is break ? Whether break statement is optional or mandatory?
+9.In switch statement, default case block is optional or mandatory?
+10.Can we able to write duplicate cases in Switch Statement?
+11.What is looping statements? And how many types are there?
+12.Explain about while loop and Give one example for While Loop
+13.Explain about do while loop and Give one example for do While Loop
+14.What is the difference between While Loop and Do While Loop?
+15.Explain working flow of For Loop
+16.In for loop, all the three segments are optional or mandatory?
+17.In for loop, if condition is not provided by default what it will take ?
+
+
+
+METHODS
+=============================================
+1.What is Method and what is the syntax to create a Method
+2.Is Access Modifiers And Modifiers are Mandatory in Methods.
+3.What is Access Modifiers and Explain their types
+4.What is Modifiers and which are the different types of modifiers we have?
+5.What is Return Type And What we can able to Write in the position of return Type
+6.Explain about Method Terminologies (Method Signature, Method Declaration and
+Method definition)
+7.Types of Methods Based On the Arguments
+8.How to call a method ?
+9.What do you mean by calling method and Called Method
+10.What process will Happen When The Method is Called
+11.Is Their any keyword to terminate the Execution of the method and Transfer back the
+Control to the caller
+12.Can we call void Method inside Print Statements
+13.which keyword is used to return the Promised value in return Type of Method
+14.What is Actual Arguments
+15.What is Formal Arguments
+16.Who will call Main Method
+17.Execution starts And Ends in which Method ?
+18.Is Main Method Mandatory, what Happens When Main Method is Not Their and if
+Programmer try to Compile and Run?
+19.Can a programmer use String as a Return Type in a Method ?
+20.What is The Convention for writing a method ?
+21.is Return Type Mandatory ?
+22.Can we have a method inside a method ?
+23.What is dynamic read ?
+24.Explain the steps to read the data from the user ?
+25.In which package Scanner class is available ?
+26.What is method recursion ?
+
+
+
+STATIC MEMBERS
+===========================================
+1.Explain about static.
+2.Explain about static variables and their characteristics?
+3.Explain about static methods and their characteristics?
+4.Explain about static initializers?
+5.How to access static variable within the class and outside the class?
+6.How to access static method within the class and outside the class?
+7.Explain about class loading process?
+8.What is static context?
+9.Inside the static context can we able to access static members of the same class
+directly ?
+10.Inside the static context can we able to access static members of the different class
+directly ?
+11.Inside the static context can we able to access non static members of the same class
+directly ?
+12.Inside the static context can we able to access non static members of the different
+class directly ?
+13.Inside the static context how to access static members of the same class ?
+14.Inside the static context how to access static members of the different class ?
+15.Inside the static context how to access non static members of the same class ?
+16.Inside the static context how to access non static members of the different class ?
