@@ -1,0 +1,64 @@
+PL/SQL stands for **Procedural Language/SQL**. It’s Oracle’s procedural extension to SQL, used mainly in **Oracle Database**.
+
+
+### 🔹 What is PL/SQL?
+
+* An extension of SQL that adds **procedural programming features** like variables, loops, conditions, and exception handling.
+* Runs inside the **Oracle Database server**.
+* Helps group SQL statements into **blocks**, procedures, and functions.
+
+---
+
+### 🔹 Structure of a PL/SQL Block
+
+Every PL/SQL program is built in blocks:
+
+```plsql
+DECLARE
+   -- Declarations (variables, constants, cursors)
+   v_name VARCHAR2(50);
+   v_salary NUMBER(8,2);
+
+BEGIN
+   -- Executable statements
+   v_name := 'John';
+   v_salary := 50000;
+   DBMS_OUTPUT.PUT_LINE('Employee: ' || v_name || ' Salary: ' || v_salary);
+
+EXCEPTION
+   -- Error handling
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('An error occurred.');
+END;
+/
+```
+
+---
+
+### 🔹 Key Features
+
+* **Variables & Constants** → store values.
+* **Control structures** → `IF`, `CASE`, `LOOP`, `WHILE`, `FOR`.
+* **Cursors** → handle multiple rows from queries.
+* **Procedures & Functions** → reusable subprograms.
+* **Packages** → group related procedures/functions.
+* **Triggers** → automatically run code when events occur (INSERT, UPDATE, DELETE).
+* **Exception Handling** → manage runtime errors gracefully.
+
+---
+
+### 🔹 Example: Using PL/SQL with a Table
+
+```plsql
+DECLARE
+   v_salary EMPLOYEES.SALARY%TYPE;
+BEGIN
+   SELECT SALARY
+   INTO v_salary
+   FROM EMPLOYEES
+   WHERE EMPLOYEE_ID = 101;
+
+   DBMS_OUTPUT.PUT_LINE('Salary is: ' || v_salary);
+END;
+/
+```

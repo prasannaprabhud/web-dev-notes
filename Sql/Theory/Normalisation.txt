@@ -1,0 +1,203 @@
+Normalization in **SQL/DBMS** is the process of organizing data in a database to reduce **redundancy** (duplicate data) and improve **data integrity**.
+
+It is done by dividing larger tables into smaller related tables and linking them with relationships (usually foreign keys).
+
+---
+
+### ✅ Objectives of Normalization
+
+1. Eliminate redundant data
+2. Ensure data dependencies are logical
+3. Improve efficiency in queries and storage
+4. Avoid anomalies (insertion, update, deletion issues)
+
+---
+
+### 📌 Types of Anomalies (Without Normalization)
+
+* **Insertion anomaly** → Can’t add new data because other data is missing.
+* **Update anomaly** → Updating data in one place requires updating in many places.
+* **Deletion anomaly** → Deleting a record removes unintended information.
+
+---
+
+### 📚 Normal Forms
+
+1. **First Normal Form (1NF)**
+
+   * No repeating groups or arrays.
+   * Each column should hold atomic (indivisible) values.
+
+   👉 Example:
+   ❌ `Phones = {1234, 5678}`
+   ✅ Store each phone number in a separate row.
+
+---
+
+2. **Second Normal Form (2NF)**
+
+   * Must be in 1NF.
+   * No **partial dependency** → non-key columns must depend on the whole primary key (not part of it).
+
+   👉 Example: If a composite key is (StudentID, CourseID), then "StudentName" should not depend only on StudentID.
+
+---
+
+3. **Third Normal Form (3NF)**
+
+   * Must be in 2NF.
+   * No **transitive dependency** → non-key column should not depend on another non-key column.
+
+   👉 Example: If "StudentID → DepartmentID → DepartmentName", then DepartmentName should be stored in a separate table.
+
+---
+
+4. **Boyce-Codd Normal Form (BCNF)**
+
+   * Stronger version of 3NF.
+   * Every determinant must be a **candidate key**.
+
+---
+
+5. **4NF and 5NF** (Advanced)
+
+   * Deal with **multi-valued dependencies** and **join dependencies**.
+
+---
+
+### 🔑 Summary
+
+* **1NF:** Atomic values
+* **2NF:** No partial dependency
+* **3NF:** No transitive dependency
+* **BCNF:** Every determinant is a key
+
+---
+
+Perfect 👍 Let’s go through **examples step by step** so you can clearly see how normalization works.
+
+---
+
+## 🎯 Example: Student-Course Table (Unnormalized)
+
+```sql
+STUDENT
+----------------------------------------------------
+StudentID | StudentName | Course1   | Course2   | Dept
+----------------------------------------------------
+1         | Arjun       | Math      | Physics   | Science
+2         | Meera       | English   | NULL      | Arts
+3         | Kiran       | Math      | Chemistry | Science
+```
+
+### Problems:
+
+* Multiple course columns (`Course1, Course2`) → repeating groups
+* If a student has 3 courses, we must add a new column.
+* Updating department names in many rows → redundancy.
+
+---
+
+## ✅ 1NF (First Normal Form)
+
+👉 Remove repeating groups → make data atomic.
+
+```sql
+STUDENT_COURSE
+-----------------------------------------
+StudentID | StudentName | Course    | Dept
+-----------------------------------------
+1         | Arjun       | Math      | Science
+1         | Arjun       | Physics   | Science
+2         | Meera       | English   | Arts
+3         | Kiran       | Math      | Science
+3         | Kiran       | Chemistry | Science
+```
+
+---
+
+## ✅ 2NF (Second Normal Form)
+
+👉 Remove **partial dependency**.
+
+* Primary Key here is `(StudentID, Course)`.
+* But `StudentName` and `Dept` depend only on `StudentID`, not on `(StudentID, Course)`.
+
+So, split into 2 tables:
+
+```sql
+STUDENT
+-----------------------------
+StudentID | StudentName | Dept
+-----------------------------
+1         | Arjun       | Science
+2         | Meera       | Arts
+3         | Kiran       | Science
+
+STUDENT_COURSE
+----------------------
+StudentID | Course
+----------------------
+1         | Math
+1         | Physics
+2         | English
+3         | Math
+3         | Chemistry
+```
+
+---
+
+## ✅ 3NF (Third Normal Form)
+
+👉 Remove **transitive dependency**.
+
+* In `STUDENT` table, `Dept` → `DeptName` (if department details exist).
+
+So, create a separate `DEPARTMENT` table:
+
+```sql
+STUDENT
+---------------------
+StudentID | Name  | DeptID
+---------------------
+1         | Arjun | 101
+2         | Meera | 102
+3         | Kiran | 101
+
+COURSE
+---------------------
+CourseID | CourseName
+---------------------
+C1       | Math
+C2       | Physics
+C3       | English
+C4       | Chemistry
+
+STUDENT_COURSE
+----------------------
+StudentID | CourseID
+----------------------
+1         | C1
+1         | C2
+2         | C3
+3         | C1
+3         | C4
+
+DEPARTMENT
+-------------------------
+DeptID | DeptName
+-------------------------
+101    | Science
+102    | Arts
+```
+
+---
+
+✅ Now the database is in **3NF**:
+
+* No redundancy
+* Easy to update departments, courses, or students
+* No anomalies
+
+---
+

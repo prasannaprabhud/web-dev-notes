@@ -1,0 +1,68 @@
+That’s a good question 👍.
+When you want to **learn new SQL concepts (or any technical concept)**, here’s a structured approach you can follow so you don’t feel lost:
+
+---
+
+### 🔹 1. **Start Small with Theory**
+
+* Pick **one concept at a time** (example: Joins, Subqueries, Indexes).
+* Read the definition, purpose, and real-life use cases.
+* Keep notes in your own words — short and simple.
+
+---
+
+### 🔹 2. **See an Example**
+
+* Look at a sample query that uses the concept.
+  Example:
+
+  ```sql
+  SELECT E.EMP_NAME, D.DEPT_NAME
+  FROM EMPLOYEE E
+  INNER JOIN DEPARTMENT D
+  ON E.DEPT_ID = D.DEPT_ID;
+  ```
+* Don’t just read — **understand what each line is doing**.
+
+---
+
+### 🔹 3. **Practice on Your Own**
+
+* Create a **small table** with sample data (5–10 rows).
+* Try the concept in different ways:
+
+  * Change conditions.
+  * Add variations (INNER JOIN → LEFT JOIN).
+  * Test edge cases (NULL values, no matching rows).
+
+---
+
+### 🔹 4. **Ask “Why”**
+
+* Why do we use this concept instead of another?
+* What are the pros & cons?
+* Example: Why use a `JOIN` instead of a `SUBQUERY`?
+
+---
+
+### 🔹 5. **Summarize & Revise**
+
+* Write 2–3 lines about the concept in your notes.
+* Save 1–2 practice queries as examples.
+* Revisit after 2 days → helps memory stick.
+
+---
+
+### 🔹 6. **Connect to Real Interview Questions**
+
+* Once you’re comfortable, solve **interview-style problems** with that concept.
+  Example: “Find the 2nd highest salary using subquery vs using ranking functions.”
+
+---
+
+👉 Formula to follow every time:
+**Theory → Example → Practice → Why → Summarize → Apply in Q&A**
+
+---
+
+Do you want me to design a **learning flow of SQL concepts in order** (so you’ll know what to learn first, second, third… until advanced)?

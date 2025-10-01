@@ -1,0 +1,103 @@
+Got it 👍 Let’s build you a **5-day SQL interview preparation schedule** that balances theory, practice, and revision.
+
+---
+
+## 🔹 Day 1 – Fundamentals & Basics
+
+* **Morning (2–3 hrs)**
+
+  * SQL basics: DDL, DML, DQL, DCL, TCL (commands & syntax).
+  * Data types, constraints (PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, DEFAULT).
+  * SQL*Plus basics (if interviewer may ask).
+
+* **Afternoon (2 hrs)**
+
+  * Practice: Create `EMP` and `DEPT` tables, insert sample data.
+  * Queries: `SELECT`, `WHERE`, `ORDER BY`, `DISTINCT`, `BETWEEN`, `IN`, `LIKE`.
+
+* **Evening (1–2 hrs)**
+
+  * Revise single row functions (`UPPER`, `LOWER`, `SUBSTR`, `INSTR`, `ROUND`, etc.).
+  * Practice 10 small queries.
+
+---
+
+## 🔹 Day 2 – Joins & Aggregations
+
+* **Morning (2–3 hrs)**
+
+  * Theory: `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, `FULL OUTER JOIN`, `SELF JOIN`, `CROSS JOIN`.
+  * Difference between joins and subqueries.
+
+* **Afternoon (2 hrs)**
+
+  * Practice: Write queries using joins on `EMP` & `DEPT`.
+  * Aggregates: `SUM`, `AVG`, `COUNT`, `MIN`, `MAX`.
+  * Grouping: `GROUP BY`, `HAVING`.
+
+* **Evening (1–2 hrs)**
+
+  * Solve at least 10 join + aggregation questions.
+
+---
+
+## 🔹 Day 3 – Subqueries & Advanced SQL
+
+* **Morning (2–3 hrs)**
+
+  * Subqueries: single row, multiple row (`IN`, `ANY`, `ALL`), correlated subqueries.
+  * `EXISTS` vs `NOT EXISTS`.
+
+* **Afternoon (2 hrs)**
+
+  * Practice complex queries (highest salary in each dept, nth highest salary, employees without managers, etc.).
+
+* **Evening (1–2 hrs)**
+
+  * Set operations: `UNION`, `INTERSECT`, `MINUS`.
+  * Practice 5 questions each.
+
+---
+
+## 🔹 Day 4 – PL/SQL & Performance
+
+* **Morning (2–3 hrs)**
+
+  * PL/SQL basics: Anonymous block, variables, loops, conditions.
+  * Cursors, exceptions.
+
+* **Afternoon (2 hrs)**
+
+  * Stored procedures, functions, triggers (theory + small examples).
+  * Transactions: COMMIT, ROLLBACK, SAVEPOINT.
+
+* **Evening (1–2 hrs)**
+
+  * Query optimization basics (indexes, execution order, explain plan).
+
+---
+
+## 🔹 Day 5 – Mock Interview & Revision
+
+* **Morning (2–3 hrs)**
+
+  * Quick revision of all topics (create a handwritten cheat sheet).
+  * Go through important interview questions (TOP 50 SQL Q&A).
+
+* **Afternoon (2 hrs)**
+
+  * Mock interview practice:
+
+    * Write queries on paper (like in real interview).
+    * Explain queries aloud.
+
+* **Evening (1–2 hrs)**
+
+  * Revise weak areas.
+  * Relax, sleep well before the interview.
+
+---
+
+✅ With this schedule, you’ll cover **theory + coding practice + interview-style revision** in 5 days.
+
+Do you also want me to create a **daily list of 10 must-practice questions** (so you know exactly what to solve each day)?
