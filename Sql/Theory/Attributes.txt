@@ -1,0 +1,81 @@
+
+In DBMS, attributes (columns of a table) can be classified into different **types** based on how they store and represent data.
+
+---
+
+## 🔹 **Types of Attributes in DBMS**
+
+### 1. **Simple Attribute**
+
+* Cannot be divided further.
+* Example: `Age`, `Salary`.
+
+---
+
+### 2. **Composite Attribute**
+
+* Can be divided into smaller parts.
+* Example: `Full_Name` → can be split into `First_Name` and `Last_Name`.
+* Example: `Address` → `Street`, `City`, `State`, `Pincode`.
+
+---
+
+### 3. **Derived Attribute**
+
+* Value is derived from another attribute.
+* Example: `Age` can be derived from `Date_of_Birth`.
+* Example: `Total_Price` = `Quantity * Unit_Price`.
+
+---
+
+### 4. **Multi-Valued Attribute**
+
+* Can have multiple values for a single entity.
+* Example: `Phone_Numbers` (a person may have more than one).
+* Example: `Skills` (C, Java, Python).
+
+---
+
+### 5. **Key Attribute**
+
+* Uniquely identifies an entity in a table.
+* Example: `Student_ID` in a Student table.
+* In ER model → **Primary Key**.
+
+---
+
+### 6. **Single-Valued Attribute**
+
+* Holds only one value for an entity.
+* Example: `Date_of_Birth`, `Employee_ID`.
+
+---
+
+### 7. **Stored Attribute**
+
+* Directly stored in the database, not calculated.
+* Example: `Salary`, `Date_of_Birth`.
+
+---
+
+### 8. **Complex Attribute**
+
+* Combination of **multi-valued + composite attributes**.
+* Example: `Address` (Composite) + `Phone Numbers` (Multi-Valued).
+
+---
+
+## 📌 Example (Student Table)
+
+| Student_ID | Name       | DOB        | Age (Derived) | Address (Composite)             | Phone (Multi-valued)     |
+| ---------- | ---------- | ---------- | ------------- | ------------------------------- | ------------------------ |
+| 101        | John Smith | 2000-05-10 | 24            | {Street: "Main St", City: "NY"} | {1234567890, 9876543210} |
+
+* `Student_ID` → **Key Attribute**
+* `Name` → **Simple Attribute**
+* `DOB` → **Stored Attribute**
+* `Age` → **Derived Attribute**
+* `Address` → **Composite Attribute**
+* `Phone` → **Multi-Valued Attribute**
+
+---
