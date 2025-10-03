@@ -1,0 +1,192 @@
+Great set of **basic to intermediate SQL interview questions** 👍
+
+---
+
+### 1. Difference between **DELETE, TRUNCATE, and DROP**
+
+* **DELETE**
+
+  * Removes rows from a table based on a condition (`WHERE` clause).
+  * Can be rolled back (transaction-safe).
+  * Slower, row by row.
+  * Syntax:
+
+    ```sql
+    DELETE FROM employees WHERE dept_id = 10;
+    ```
+
+* **TRUNCATE**
+
+  * Removes all rows from a table (no `WHERE`).
+  * Cannot be rolled back (DDL command).
+  * Faster, resets identity counters.
+  * Syntax:
+
+    ```sql
+    TRUNCATE TABLE employees;
+    ```
+
+* **DROP**
+
+  * Removes the entire table structure along with the data.
+  * Cannot be rolled back.
+  * Syntax:
+
+    ```sql
+    DROP TABLE employees;
+    ```
+
+---
+
+### 2. Difference between **Primary Key, Unique Key, and Foreign Key**
+
+* **Primary Key**
+
+  * Uniquely identifies each row.
+  * Cannot have `NULL`.
+  * Only one per table.
+* **Unique Key**
+
+  * Ensures column values are unique.
+  * Allows **one NULL** value.
+  * Multiple unique keys allowed in a table.
+* **Foreign Key**
+
+  * Establishes a link between two tables.
+  * References primary/unique key of another table.
+  * Maintains referential integrity.
+
+---
+
+### 3. **Joins** and their types
+
+* **INNER JOIN** → returns only matching rows.
+
+  ```sql
+  SELECT e.name, d.dept_name
+  FROM employee e
+  INNER JOIN department d ON e.dept_id = d.dept_id;
+  ```
+
+* **LEFT JOIN** → all rows from left + matching from right.
+
+* **RIGHT JOIN** → all rows from right + matching from left.
+
+* **FULL JOIN** → all rows from both, matched and unmatched.
+
+* **SELF JOIN** → join table with itself.
+
+* **CROSS JOIN** → Cartesian product (all combinations).
+
+---
+
+### 4. Difference between **WHERE and HAVING**
+
+* **WHERE**
+
+  * Filters rows **before grouping/aggregation**.
+  * Works on individual rows.
+* **HAVING**
+
+  * Filters groups **after aggregation**.
+  * Works on aggregate results (`SUM`, `COUNT`, etc.).
+* Example:
+
+  ```sql
+  SELECT dept_id, COUNT(*)
+  FROM employee
+  WHERE salary > 5000
+  GROUP BY dept_id
+  HAVING COUNT(*) > 3;
+  ```
+
+---
+
+### 5. **Subquery** (Correlated vs Non-correlated)
+
+* **Subquery**: A query inside another query.
+* **Non-correlated** → independent, runs once.
+
+  ```sql
+  SELECT name
+  FROM employee
+  WHERE salary > (SELECT AVG(salary) FROM employee);
+  ```
+* **Correlated** → depends on outer query, runs for each row.
+
+  ```sql
+  SELECT e1.name
+  FROM employee e1
+  WHERE salary > (SELECT AVG(salary) FROM employee e2 WHERE e1.dept_id = e2.dept_id);
+  ```
+
+---
+
+### 6. **UNION vs UNION ALL**
+
+* **UNION**
+
+  * Combines result sets.
+  * Removes duplicates.
+* **UNION ALL**
+
+  * Combines result sets.
+  * Keeps duplicates.
+* Example:
+
+  ```sql
+  SELECT name FROM employee_2024
+  UNION
+  SELECT name FROM employee_2025;
+  ```
+
+---
+
+### 7. **Indexes**
+
+* Special data structures to speed up queries.
+* Useful for columns used in `WHERE`, `JOIN`, `ORDER BY`.
+* Types: clustered, non-clustered, unique, composite, full-text.
+* Tradeoff: Faster reads but slower inserts/updates (due to maintenance).
+
+---
+
+### 8. **View**
+
+* A virtual table based on query result.
+* Does not store data separately.
+* Syntax:
+
+  ```sql
+  CREATE VIEW emp_dept AS
+  SELECT e.name, d.dept_name
+  FROM employee e
+  JOIN department d ON e.dept_id = d.dept_id;
+  ```
+* **Update?**
+
+  * Yes, if based on a single table without aggregation/joins.
+  * Complex views (joins, group by, union) usually not updatable.
+
+---
+
+### 9. **Normalization vs Denormalization**
+
+* **Normalization**: Organizing data to reduce redundancy and improve integrity.
+
+  * Example: Splitting employee data into separate tables (Employee, Department).
+  * Follows rules (1NF, 2NF, 3NF, BCNF).
+* **Denormalization**: Combining tables to improve performance (fewer joins).
+
+  * Example: Storing department name directly in the Employee table.
+
+---
+
+### 10. **ACID properties** of a database
+
+* **Atomicity** → All or nothing (transaction fully executes or not at all).
+* **Consistency** → Database remains valid before and after transaction.
+* **Isolation** → Transactions run independently, no dirty reads.
+* **Durability** → Once committed, changes persist even after crash.
+
+---
