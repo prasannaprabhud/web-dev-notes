@@ -1,0 +1,113 @@
+**Optimization & Performance SQL Interview Questions**! 🚀
+
+---
+
+### 1. **How do you improve the performance of a slow SQL query?**
+
+* **Check indexes:** Add missing indexes on columns used in `WHERE`, `JOIN`, `GROUP BY`, `ORDER BY`.
+* **Use appropriate joins:** Avoid unnecessary joins, replace `OUTER JOIN` with `INNER JOIN` if possible.
+* **Avoid `SELECT *`:** Retrieve only required columns.
+* **Rewrite subqueries:** Replace correlated subqueries with joins/CTEs when possible.
+* **Use proper filtering:** Push filters (`WHERE` clauses) as close to the base tables as possible.
+* **Partitioning:** For huge datasets, partition tables for faster scans.
+* **Execution plan analysis:** Look for table scans, key lookups, or missing indexes.
+* **Caching / Materialized views:** Use precomputed results when queries are repetitive.
+
+---
+
+### 2. **Difference between Clustered Index and Non-Clustered Index**
+
+* **Clustered Index**
+
+  * Defines the **physical order** of rows in the table (like a sorted book).
+  * One per table (usually on the Primary Key).
+  * Faster for range queries and lookups by indexed column.
+
+* **Non-Clustered Index**
+
+  * A separate structure (like a “lookup table”) that points to the row location in the clustered index or heap.
+  * Multiple allowed per table.
+  * Useful when searching/filtering on non-primary key columns.
+
+---
+
+### 3. **What is a query execution plan and how do you analyze it?**
+
+* **Execution Plan:** A roadmap that shows how the SQL engine retrieves data (scan, seek, join type, sort, etc.).
+* **Types:**
+
+  * **Estimated Execution Plan** (before running).
+  * **Actual Execution Plan** (after execution, with runtime stats).
+* **How to analyze:**
+
+  * Look for **table scans** → check if indexing can help.
+  * Watch out for **nested loops on large tables** → may need joins/indexes.
+  * High **I/O or CPU cost** → optimize queries, indexes, or schema.
+
+---
+
+### 4. **Explain Partitioning vs Sharding**
+
+* **Partitioning (Database Level):**
+
+  * Splits **one table** into multiple smaller parts based on a key (e.g., by date, region).
+  * Managed within a **single database instance**.
+  * Improves query performance by scanning only relevant partitions.
+
+* **Sharding (Application/Cluster Level):**
+
+  * Splits **data across multiple servers/databases** (horizontal scaling).
+  * Each shard holds a subset of the data (e.g., users A–M on one shard, N–Z on another).
+  * Improves scalability but adds complexity (cross-shard queries, transactions).
+
+---
+
+### 5. **What is index selectivity and why is it important?**
+
+* **Index Selectivity:** Ratio of **unique values** in an index column to total rows.
+
+  * Formula: `Distinct Values / Total Rows`.
+* **High selectivity (close to 1):**
+
+  * Index is very useful (e.g., SSN, email ID).
+* **Low selectivity (close to 0):**
+
+  * Index is less useful (e.g., Gender, Boolean flag).
+* **Importance:**
+
+  * The more selective, the fewer rows to scan → faster queries.
+  * Low-selectivity indexes may not be used by the optimizer.
+
+---
+
+### 6. **When should you use CTE (Common Table Expressions) over subqueries?**
+
+* Use **CTEs when:**
+
+  * Query logic is **complex** and needs to be **broken down** into steps.
+  * **Recursive queries** (like hierarchical data, tree traversal).
+  * Query is reused multiple times in the same SQL statement.
+
+* Use **Subqueries when:**
+
+  * Simple, one-off filtering/aggregation.
+  * Performance is not heavily affected.
+
+⚡ CTEs improve **readability** and **maintainability**, but execution plan is often the same as a subquery.
+
+---
+
+### 7. **What are materialized views and when to use them?**
+
+* **Materialized View:** A database object that stores the **result of a query physically** (unlike normal views which are virtual).
+* **Use cases:**
+
+  * When queries involve **complex joins and aggregations**.
+  * For **reporting and analytics** where real-time accuracy is not mandatory.
+  * When the same query is run **frequently**.
+* **Trade-offs:**
+
+  * Need to **refresh** (manually or scheduled).
+  * Consumes storage.
+
+---
