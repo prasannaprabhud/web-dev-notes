@@ -1,0 +1,134 @@
+**classic SQL + database design + real-world scenario** interview-style topics
+
+---
+
+### **1. Schema Design for an E-Commerce System**
+
+At minimum, we need **Products, Customers, Orders, OrderItems**.
+
+**Tables:**
+
+* **Customers**
+
+  * customer_id (PK)
+  * name
+  * email (unique)
+  * phone
+  * address
+  * created_at
+
+* **Products**
+
+  * product_id (PK)
+  * name
+  * description
+  * price
+  * stock_quantity
+  * category_id (FK → Categories.category_id)
+  * created_at
+
+* **Categories** (optional for product hierarchy)
+
+  * category_id (PK)
+  * parent_category_id (FK self-reference)
+  * name
+
+* **Orders**
+
+  * order_id (PK)
+  * customer_id (FK → Customers.customer_id)
+  * order_date
+  * status (Pending, Shipped, Delivered, Cancelled)
+  * total_amount
+
+* **OrderItems**
+
+  * order_id (FK → Orders.order_id, part of PK)
+  * product_id (FK → Products.product_id, part of PK)
+  * quantity
+  * price_at_purchase
+
+This supports:
+
+* Customers placing multiple orders
+* Orders containing multiple products
+* Product stock management
+
+---
+
+### **2. Storing & Querying Hierarchical Data (Org Chart, Folder Structure)**
+
+Two main approaches:
+
+1. **Adjacency List (Self-Referencing FK)**
+
+   * Table `Employees(employee_id, name, manager_id)`
+   * `manager_id` references another row in the same table.
+   * Easy to update, but recursive queries are needed.
+
+   ```sql
+   SELECT e1.name, e2.name AS manager
+   FROM Employees e1
+   LEFT JOIN Employees e2 ON e1.manager_id = e2.employee_id;
+   ```
+
+2. **Nested Sets**
+
+   * Store `left` and `right` values for each node.
+   * Faster for tree traversals (all descendants in one query).
+   * Example: `Folders(folder_id, name, lft, rgt)`
+
+3. **Closure Table**
+
+   * Store all ancestor–descendant pairs in a separate table.
+   * `Hierarchy(ancestor_id, descendant_id, depth)`
+
+👉 **Best choice:**
+
+* Use **Adjacency List + Recursive CTEs** (modern DBs like PostgreSQL, SQL Server, MySQL 8 support it).
+* Use **Closure Table** if heavy tree traversal is needed.
+
+---
+
+### **3. Handling Many-to-Many Relationships**
+
+* Create a **junction (bridge) table**.
+
+Example:
+
+* `Students(student_id, name)`
+* `Courses(course_id, title)`
+* `Enrollments(student_id, course_id, enrollment_date)`
+
+This allows a student to join multiple courses, and a course to have many students.
+
+---
+
+### **4. Designing a Table with Millions of Rows (Efficient Read/Write)**
+
+Key techniques:
+
+* **Proper Indexing** (Clustered index on PK, non-clustered indexes on search/filter columns).
+* **Partitioning** (range/hash partitioning if queries hit subsets, e.g., by date).
+* **Normalization** to reduce duplication.
+* **Covering indexes** for common queries.
+* **Use Surrogate Keys (INT/BIGINT)** instead of composite natural keys.
+* **Avoid wide tables** (keep frequently updated columns separate).
+* **Caching (Redis, Memcached)** for frequent reads.
+* **Archiving old data** into history tables.
+
+---
+
+### **5. Preventing Deadlocks in SQL Transactions**
+
+Deadlocks occur when two transactions wait on each other’s locks.
+
+**Prevention strategies:**
+
+1. **Consistent locking order** – Always access tables in the same sequence.
+2. **Keep transactions short** – Commit quickly, avoid holding locks for long.
+3. **Use proper isolation levels** – Sometimes `READ COMMITTED` is enough, avoid unnecessary `SERIALIZABLE`.
+4. **Index properly** – Reduces lock contention by narrowing row scans.
+5. **Detect & retry logic** – Many DBs auto-detect deadlocks; application should retry failed transactions.
+
+---
