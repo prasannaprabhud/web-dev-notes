@@ -1,0 +1,232 @@
+**PL/SQL basics**
+
+---
+
+## 🧠 **1. Anonymous Block**
+
+An **anonymous block** is a PL/SQL block **without a name** — it’s not stored in the database and runs only once.
+
+**Structure:**
+
+```plsql
+DECLARE
+   -- Declarations
+BEGIN
+   -- Executable statements
+EXCEPTION
+   -- Error handling (optional)
+END;
+/
+```
+
+**Example:**
+
+```plsql
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Hello, PL/SQL!');
+END;
+/
+```
+
+---
+
+## 🧩 **2. Variables**
+
+You declare variables in the `DECLARE` section.
+
+**Syntax:**
+
+```plsql
+variable_name datatype [:= initial_value];
+```
+
+**Example:**
+
+```plsql
+DECLARE
+   v_name VARCHAR2(20) := 'Cyber Punk';
+   v_age  NUMBER := 25;
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Name: ' || v_name);
+   DBMS_OUTPUT.PUT_LINE('Age: ' || v_age);
+END;
+/
+```
+
+---
+
+## 🔁 **3. Loops**
+
+There are **three main types of loops** in PL/SQL:
+
+### a. **Basic Loop**
+
+```plsql
+DECLARE
+   i NUMBER := 1;
+BEGIN
+   LOOP
+      DBMS_OUTPUT.PUT_LINE('Count: ' || i);
+      i := i + 1;
+      EXIT WHEN i > 5;
+   END LOOP;
+END;
+/
+```
+
+### b. **WHILE Loop**
+
+```plsql
+DECLARE
+   i NUMBER := 1;
+BEGIN
+   WHILE i <= 5 LOOP
+      DBMS_OUTPUT.PUT_LINE('Count: ' || i);
+      i := i + 1;
+   END LOOP;
+END;
+/
+```
+
+### c. **FOR Loop**
+
+```plsql
+BEGIN
+   FOR i IN 1..5 LOOP
+      DBMS_OUTPUT.PUT_LINE('Count: ' || i);
+   END LOOP;
+END;
+/
+```
+
+---
+
+## ⚖️ **4. Conditions (IF / CASE)**
+
+### a. **IF Statement**
+
+```plsql
+DECLARE
+   v_num NUMBER := 10;
+BEGIN
+   IF v_num > 0 THEN
+      DBMS_OUTPUT.PUT_LINE('Positive number');
+   ELSIF v_num < 0 THEN
+      DBMS_OUTPUT.PUT_LINE('Negative number');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('Zero');
+   END IF;
+END;
+/
+```
+
+### b. **CASE Statement**
+
+```plsql
+DECLARE
+   grade CHAR := 'A';
+BEGIN
+   CASE grade
+      WHEN 'A' THEN DBMS_OUTPUT.PUT_LINE('Excellent');
+      WHEN 'B' THEN DBMS_OUTPUT.PUT_LINE('Good');
+      ELSE DBMS_OUTPUT.PUT_LINE('Try again');
+   END CASE;
+END;
+/
+```
+
+---
+
+## 🧾 **5. Cursors**
+
+Cursors are used to **fetch multiple rows** from a query, one at a time.
+
+### a. **Implicit Cursor**
+
+Used automatically by PL/SQL for single-row queries.
+
+```plsql
+DECLARE
+   v_salary EMPLOYEES.SALARY%TYPE;
+BEGIN
+   SELECT SALARY INTO v_salary
+   FROM EMPLOYEES
+   WHERE EMPLOYEE_ID = 100;
+
+   DBMS_OUTPUT.PUT_LINE('Salary: ' || v_salary);
+END;
+/
+```
+
+### b. **Explicit Cursor**
+
+Used when query returns **multiple rows**.
+
+```plsql
+DECLARE
+   CURSOR emp_cursor IS
+      SELECT FIRST_NAME, SALARY FROM EMPLOYEES WHERE DEPARTMENT_ID = 10;
+
+   v_name EMPLOYEES.FIRST_NAME%TYPE;
+   v_salary EMPLOYEES.SALARY%TYPE;
+BEGIN
+   OPEN emp_cursor;
+   LOOP
+      FETCH emp_cursor INTO v_name, v_salary;
+      EXIT WHEN emp_cursor%NOTFOUND;
+      DBMS_OUTPUT.PUT_LINE(v_name || ' - ' || v_salary);
+   END LOOP;
+   CLOSE emp_cursor;
+END;
+/
+```
+
+---
+
+## ⚠️ **6. Exceptions**
+
+Used to handle **errors** that occur during program execution.
+
+**Types:**
+
+* **Predefined exceptions** – e.g. `NO_DATA_FOUND`, `ZERO_DIVIDE`
+* **User-defined exceptions**
+
+**Example (Predefined):**
+
+```plsql
+DECLARE
+   v_salary NUMBER;
+BEGIN
+   SELECT SALARY INTO v_salary
+   FROM EMPLOYEES
+   WHERE EMPLOYEE_ID = 9999; -- Invalid ID
+
+   DBMS_OUTPUT.PUT_LINE(v_salary);
+
+EXCEPTION
+   WHEN NO_DATA_FOUND THEN
+      DBMS_OUTPUT.PUT_LINE('No employee found!');
+END;
+/
+```
+
+**Example (User-defined):**
+
+```plsql
+DECLARE
+   v_age NUMBER := 15;
+   ex_underage EXCEPTION;
+BEGIN
+   IF v_age < 18 THEN
+      RAISE ex_underage;
+   END IF;
+
+EXCEPTION
+   WHEN ex_underage THEN
+      DBMS_OUTPUT.PUT_LINE('Underage not allowed!');
+END;
+/
+```
+
+---
