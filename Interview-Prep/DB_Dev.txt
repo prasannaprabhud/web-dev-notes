@@ -1,0 +1,105 @@
+Let’s focus on simple, clear English that helps you sound confident and professional.
+
+👉 Here’s what we can do right now:
+
+Practice common interview questions (I’ll help you with simple answers).
+Improve your pronunciation and fluency with short sentences.
+Learn a few key phrases to sound natural and polite.
+
+
+Let’s start with the first common question:
+
+💬 “Tell me about yourself.”
+
+👉 Example Answer (simple English):
+
+My name is [Your Name]. I have completed my bachelor’s degree in Computer Applications.
+I have good knowledge of SQL and basic PL/SQL.
+I can write queries, create tables, and work with joins and subqueries.
+I am interested in database development and always try to improve my technical skills.
+
+Now, let’s say it slowly together:
+🗣 “My name is [Your Name]. I have completed my bachelor’s degree in Computer Applications.”
+🗣 “I have good knowledge of SQL and basic PL/SQL.”
+🗣 “I can write queries, create tables, and work with joins and subqueries.”
+🗣 “I am interested in database development and always try to improve my technical skills.”
+
+💬 Question 2:
+
+What is SQL?
+
+👉 Simple English Answer:
+
+SQL means Structured Query Language.
+It is used to store, manage, and retrieve data from a database.
+With SQL, we can create tables, insert data, update records, and run queries to get information.
+
+🗣 Practice speaking slowly:
+“SQL means Structured Query Language.”
+“It is used to store, manage, and retrieve data from a database.”
+“With SQL, we can create tables, insert data, update records, and run queries to get information.”
+
+
+💬 Question 3:
+What is the difference between DELETE and TRUNCATE?
+DELETE removes specific rows from a table using a condition.
+TRUNCATE removes all the rows from a table at once.
+DELETE can be rolled back, but TRUNCATE cannot be rolled back.
+
+
+💬 Question 4:
+What are joins in SQL?
+Joins are used to combine data from two or more tables based on a related column.
+There are different types of joins — INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN.
+
+
+💬 Question 5:
+What is a Primary Key?
+A Primary Key is a column or combination of columns that uniquely identifies each row in a table.
+It does not allow duplicate or null values.
+
+
+💬 Question 6:
+What is a Subquery?
+A subquery is a query inside another query.
+It is used to get data that will be used by the main query.
+Subqueries can be written in SELECT, WHERE, or FROM clauses.
+
+
+💬 Question 7:
+What is a View in SQL?
+A view is a virtual table that shows data from one or more tables.
+It stores only the SQL query, not the data itself.
+It helps to simplify complex queries and increase security.
+
+
+💬 Question 8:
+What is Normalization?
+Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity.
+There are several normal forms like 1NF, 2NF, 3NF, and BCNF.
+
+
+💬 Question 9:
+What is the difference between INNER JOIN and LEFT JOIN?
+INNER JOIN returns only matching rows from both tables.
+LEFT JOIN returns all rows from the left table and matching rows from the right table.
+
+
+💬 Question 10:
+How do you improve the performance of an SQL query?
+We can improve performance by using indexes, avoiding unnecessary subqueries, using proper joins, and analyzing execution plans.
+Also, retrieving only required columns helps increase speed.
+
+
+
+
+
+
+
+reference :
+
+chatgpt - https://chatgpt.com/share/68e406a4-82f4-8008-ac44-fed5af71064d
+
+
+
+
