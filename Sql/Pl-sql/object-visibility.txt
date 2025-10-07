@@ -1,0 +1,20 @@
+
+
+🧭 In Oracle Database — Object Visibility
+
+You can view all your created database objects using the system views that start with:
+
+USER_ → shows objects owned by your user
+ALL_ → shows objects accessible to you
+DBA_ → shows all objects in the entire database (DBA privilege required)
+
+
+| Object Type | Data Dictionary View          | Example Query                                               |
+| ----------- | ----------------------------- | ----------------------------------------------------------- |
+| Function    | `USER_OBJECTS`, `USER_SOURCE` | `SELECT * FROM user_objects WHERE object_type='FUNCTION';`  |
+| Procedure   | `USER_OBJECTS`, `USER_SOURCE` | `SELECT * FROM user_objects WHERE object_type='PROCEDURE';` |
+| Trigger     | `USER_TRIGGERS`               | `SELECT * FROM user_triggers;`                              |
+| Index       | `USER_INDEXES`                | `SELECT * FROM user_indexes;`                               |
+| View        | `USER_VIEWS`                  | `SELECT * FROM user_views;`                                 |
+| All Objects | `USER_OBJECTS`                | `SELECT * FROM user_objects;`                               |
+
