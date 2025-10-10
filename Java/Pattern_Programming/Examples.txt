@@ -1,0 +1,158 @@
+Pattern programming means writing code (usually in **C, C++, Java, or Python**) to print specific patterns made up of **numbers, stars (*), letters, or symbols** in a structured format using **loops (for, while)** and **conditions (if-else)**.
+
+
+---
+
+### 🔹 1. Star Pattern (Right Triangle)
+
+**Output:**
+
+```
+*
+**
+***
+****
+*****
+```
+
+**Java Code:**
+
+```java
+public class Main {
+  public static void main(String[] args) {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+      for (int j = 1; j <= i; j++) {
+        System.out.print("*");
+      }
+      System.out.println();
+    }
+  }
+}
+```
+
+---
+
+### 🔹 2. Inverted Triangle
+
+**Output:**
+
+```
+*****
+****
+***
+**
+*
+```
+
+**Java Code:**
+
+```java
+public class Main {
+  public static void main(String[] args) {
+    int n = 5;
+    for (int i = n; i >= 1; i--) {
+      for (int j = 1; j <= i; j++) {
+        System.out.print("*");
+      }
+      System.out.println();
+    }
+  }
+}
+```
+
+---
+
+### 🔹 3. Pyramid Pattern
+
+**Output:**
+
+```
+    *
+   ***
+  *****
+ *******
+*********
+```
+
+**Java Code:**
+
+```java
+public class Main {
+  public static void main(String[] args) {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+      for (int j = i; j < n; j++) {
+        System.out.print(" ");
+      }
+      for (int k = 1; k <= (2 * i - 1); k++) {
+        System.out.print("*");
+      }
+      System.out.println();
+    }
+  }
+}
+```
+
+---
+
+### 🔹 4. Number Pattern
+
+**Output:**
+
+```
+1
+12
+123
+1234
+12345
+```
+
+**Java Code:**
+
+```java
+public class Main {
+  public static void main(String[] args) {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+      for (int j = 1; j <= i; j++) {
+        System.out.print(j);
+      }
+      System.out.println();
+    }
+  }
+}
+```
+
+---
+
+### 🔹 5. Character Pattern
+
+**Output:**
+
+```
+A
+AB
+ABC
+ABCD
+ABCDE
+```
+
+**Java Code:**
+
+```java
+public class Main {
+  public static void main(String[] args) {
+    int n = 5;
+    for (int i = 1; i <= n; i++) {
+      for (char ch = 'A'; ch < 'A' + i; ch++) {
+        System.out.print(ch);
+      }
+      System.out.println();
+    }
+  }
+}
+```
+
+---
+
