@@ -33,4 +33,5 @@ __pycache__/
 dist/
 build/
 
+*.class
 gitcommit.txt
