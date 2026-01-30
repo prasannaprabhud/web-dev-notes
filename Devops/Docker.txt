@@ -1,0 +1,43 @@
+docker 
+
+// list
+docker images
+docker ps -a
+
+// install images
+docker pull httpd
+
+// container
+docker run -itd -p "80:80" httpd
+
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+myimage      v1        8f0b2f13e9e1   2 days ago    184MB
+httpd        latest    14ca0b0b9518   2 weeks ago   117MB
+
+// remove images
+docker rmi 8f0b2f13e9e1 14ca0b0b9518
+
+CONTAINER ID   IMAGE     COMMAND              CREATED         STATUS         PORTS                                 NAMES
+d6518d1f1534   httpd     "httpd-foreground"   7 seconds ago   Up 6 seconds   0.0.0.0:80->80/tcp, [::]:80->80/tcp   pedantic_sanderson
+
+// execute docker container
+docker exec -it d6518d1f1534 /bin/bash
+
+// remove container
+docker rm -f d6518d1f1534
+
+sudo su - root
+apt-get update
+docker pull httpd
+docker images
+docker run -itd -p "80:80" httpd
+docker ps -a
+docker exec -it CONTAINER_ID /bin/bash
+apt install vim
+apt install wget
+docker commit CONTAINER_ID REPOSITORY_NAME:VERSION
+docker commit d6518d1f1534 myimage:v1
+docker save -o ./myimagebackup.tar  myimage:v1
+docker rm -f CONTAINER_ID
+docker rmi IMAGE_ID
+docker load -i myimagebackup.tar

@@ -1,0 +1,23 @@
+
+sudo su - root
+apt-get update
+docker
+docker pull httpd
+docker images
+docker run -itd -p "80:80" httpd
+docker ps -a
+docker exec -it CONTAINER_ID /bin/bash
+apt install vim
+apt install wget
+docker commit CONTAINER_ID REPOSITORY_NAME:VERSION
+docker commit d6518d1f1534 myimage:v1
+docker save -o ./myimagebackup.tar  myimage:v1
+docker rm -f CONTAINER_ID
+docker rmi IMAGE_ID
+docker load -i myimagebackup.tar
+
+docker tag OLD_REPO_NAME USERNAME/NEW_REPO_NAME
+docker tag myimage:v1 prabhud1/newimage:v1
+
+docker login
+docker push prabhud1/newimage:v1
